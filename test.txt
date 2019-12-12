@@ -1,1 +1,1 @@
-git is powerful
+git is powerful under GPL
