@@ -1,2 +1,3 @@
 git is very powerful under GPL.
 Git has a mutable index called stage.
+new branch
