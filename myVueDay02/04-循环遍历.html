@@ -5,5 +5,27 @@
 		<title></title>
 	</head>
 	<body>
+		<div id="App">
+			<ul>
+				<li v-for="(item, index) in singers">{{index + 1}} - {{item}}</li>
+			</ul>
+			<ul>
+				<li v-for="(value, key, index) in bread">{{index}} - {{key}} - {{value}}</li>
+			</ul>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#App',
+				data: {
+					singers:['刘德华', '黎明', '张学友', '郭富城'],
+					bread:{
+						name: 'lee',
+						age: 18,
+						male: 'male'
+					}
+				}
+			})
+		</script>
 	</body>
 </html>

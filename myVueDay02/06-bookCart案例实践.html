@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="App">
+			<div v-if="booklist.length">
+				<table border="1px solid" cellspacing="0" cellpadding="6px">
+					<tr>
+						<th></th>
+						<th>书籍名称</th>
+						<th>出版日期</th>
+						<th>价格</th>
+						<th>购买数量</th>
+						<th>操作</th>
+					</tr>
+					<tr v-for="(book, index) in booklist" >
+						<td>{{book.id}}</td>
+						<td>{{book.name}}</td>
+						<td>{{book.data}}</td>
+						<td>￥{{book.price.toFixed(2)}}</td>
+						<td>
+							<button @click="decrement(book)" :disabled="book.amount <= 1">-</button>
+							{{book.amount}}
+							<button @click="increment(book)">+</button>
+						</td>
+						<td><button @click="remove(index)">移除</button></td>
+					</tr>
+				</table>
+				<h3>总价格为:￥{{totalPrice.toFixed(2)}}</h3>
+			</div>
+			<h3 v-else >不喜欢看书？？<img src="../myVueDay01/img/adele.jpeg" ></h3>
+			
+			
+		</div>
+		
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#App',
+				data: {
+					isDisabled: false,
+					booklist: [
+						{id: 1, name: 'Vue', data: '2006-9', price: 84, amount: 1 },
+						{id: 2, name: 'React', data: '2008-12', price: 44, amount: 1 },
+						{id: 3, name: 'Jquery', data: '2003-3', price: 65, amount: 1 },
+						{id: 4, name: 'Angular', data: '2012-10', price: 32.5, amount: 1 }
+					],
+				},
+				computed:{
+					totalPrice(){
+						return this.booklist.reduce((pre, cur) => {
+							return pre + cur.price*cur.amount
+						}, 0)
+					}
+				},
+				methods: {
+					increment(item){
+						item.amount++
+					},
+					decrement(item){
+						item.amount--
+					},
+					remove(index){
+						this.booklist.splice((index),1)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
