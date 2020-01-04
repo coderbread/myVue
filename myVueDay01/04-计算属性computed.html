@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="App">
+			<h3>{{fullName}}</h3>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#App',
+				data: {
+					firstName: 'Bread',
+					lastName: 'Lee'
+				},
+				computed:{//函数自动调用，有缓存，methods木得
+					fullName(){
+						return this.firstName + ' ' + this.lastName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

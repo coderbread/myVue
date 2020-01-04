@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="App">
+			<ul>
+				<li 
+					v-for="(item, index) in singers" 
+					@click="deleteItem(index)" 
+					:key="index"
+					:style="{color: fontColor}">{{index}} - {{item}}</li>
+			</ul>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#App',
+				data: {
+					singers: ['刘德华', '黎明', '张学友', '郭富城'],
+					fontColor: 'black',
+					finalColor: 'red'
+				},
+				methods:{
+					deleteItem(index){
+						this.singers.splice(index, 1)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

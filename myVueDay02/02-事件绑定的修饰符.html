@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="App">
+			<div @click="divClick">
+				<!-- stop修饰符: 阻止冒泡 -->
+				<button @click.stop="btnClick">别点我</button>
+			</div>
+			
+			<!-- prevent修饰符: 阻止默认事件 -->
+			<form action="baidu" method="post">
+				<input type="submit" @click.prevent="submitClick" value="提交">
+			</form>
+			
+			<!-- 按键修饰符: 监听键盘的按键 -->
+			<input type="text" @keyup.s="keyUp" value="" />
+			
+			<!-- once修饰符: 只触发一次 -->
+
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#App',
+				data: {
+					
+				},
+				methods:{
+					divClick(){
+						console.log('div');
+					},
+					btnClick(){
+						console.log('btn');
+					},
+					submitClick(){
+						alert('Submit Successfully');
+					},
+					keyUp(e){
+						console.log(e.key);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

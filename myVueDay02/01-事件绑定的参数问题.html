@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="App">
+			<button @click="show(10, $event)">别点我</button>
+			<button @click="show">点我弹出event时间</button>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#App',
+				data: {
+					
+				},
+				methods: {
+					show(data, $event){
+						console.log(data, $event)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
