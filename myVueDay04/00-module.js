@@ -1,7 +1,9 @@
-const show = function(){
+export const show = function(){
 	console.log('hello');
-}
 
-module.exports = {
-	show
 }
+// 00调用 
+// module.exports = {
+// 	show
+// }
+
