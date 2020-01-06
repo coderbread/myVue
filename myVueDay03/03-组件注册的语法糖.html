@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="App">
+			<cpn />
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#App',
+				components: {
+					cpn: {
+						template: `
+							<h3>注册组件的语法糖</h3>
+						`
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

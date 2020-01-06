@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!-- 组件化的操作步骤
+			1、 构造组件
+			2、 注册组件
+			3、 使用组件
+		 -->
+		 
+		<div id="App">
+			<!-- 3.使用组件 -->
+			<cpn />
+		</div>
+		
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 1.创建组件
+			// 子组件一定要先创建，再注册
+			const myCpn1 = Vue.extend({
+				template: `
+					<h4>我是子组件</h4>`,
+			})
+			
+			const myCpn = Vue.extend({
+				template: `
+					<div>
+						<h3>我是组件</h3>
+						<cpn1 />
+					</div>`,
+				components: {
+					cpn1: myCpn1
+				}
+			})
+			
+			// 2.注册组件(全局组件)
+			// Vue.component('cpn', myCpn)
+			
+			const app = new Vue({
+				el: '#App',
+				data: {},
+				// 2.注册组件(局部组件)
+				components: {
+					'cpn': myCpn,
+					cpn1: myCpn1
+				}
+			})
+		</script>
+	</body>
+</html>
