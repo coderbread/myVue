@@ -27,7 +27,8 @@ diff算法 会把不互斥的元素进行复用 添加key属性即可解决
 key的值是独一无二的，一般是使用后台传来的id值
 
 ### Vue中数组哪些方法是响应式的
-总结: 改变原数组"样子"的方法，例如`push,pop,shift,unshift,splice,sort,reverse`,通过索引值改变数组中的元素值不是响应式的,arr[0] = 'newValue'  
+总结: 改变原数组"样子"的方法，例如`push,pop,shift,unshift,splice,sort,reverse`  
+通过索引值改变数组中的元素值不是响应式的,arr[0] = 'newValue'  
 
 ### v-model的简单实现
 ##### 解释: 将view层的表单数据 与 model层的data 双向绑定
@@ -36,26 +37,26 @@ key的值是独一无二的，一般是使用后台传来的id值
 `<input type="text" :value="msg" @input="msg=$event.target.value" />`
 
 ### 基于函数的组件data
-让每个创建的组件实例都有单独的data，互不影响
+让每个创建的组件实例都有单独的data，互不影响  
 
 ### 父传子 props 传入一个对象的所有属性
-想要将一个对象的所有属性都作为 prop 传入，可以使用不带参数的 v-bind (取代 v-bind:prop-name)。
+想要将一个对象的所有属性都作为 prop 传入，可以使用不带参数的 v-bind (取代 v-bind:prop-name)。  
 
 ### Vue的渲染过程
-  template => AST(抽象语法树) => render => Vdom => UI
+  template => AST(抽象语法树) => render => Vdom => UI  
 
 ### 前端路由 后端路由
-  后端渲染: 服务器获取到浏览器发送过来的URL字段，先在后台基于JSP渲染好HTML页面，然后页面直接传给浏览器
-    后端路由的映射关系: URL字段 <--> 页面
-  前端渲染: 网页大部分内容都是由前端JS脚本渲染出来的
-    SPA单页面应用
-    前端路由的映射关系: URL字段 <--> 页面
+  后端渲染: 服务器获取到浏览器发送过来的URL字段，先在后台基于JSP渲染好HTML页面，然后页面直接传给浏览器  
+    后端路由的映射关系: URL字段 <--> 页面  
+  前端渲染: 网页大部分内容都是由前端JS脚本渲染出来的   
+    SPA单页面应用  
+    前端路由的映射关系: URL字段 <--> 页面  
 
 ### hash & history
-  路由模式: mode: 'hash'||'history' 
+  路由模式: mode: 'hash'||'history'  
 
 ### 懒加载
-  原理: 将打包后的app.js文件进行分离; 每个路由组件作为一个js文件
+  原理: 将打包后的app.js文件进行分离; 每个路由组件作为一个js文件  
   用法: `const Home = () => import('@/components/Home.vue')`
 
 ### 参数传递
@@ -65,5 +66,6 @@ key的值是独一无二的，一般是使用后台传来的id值
   概念: 设置路由跳转时的监听
   `router.forEach((to, from, next) => {`
     `next()`
-    `document.title = to.matched[0].meta.title`  //在每个router设置meta值,动态修改网页title，matched\[0\]解决嵌套问题
-  `})`
+    `document.title = to.matched[0].meta.title`  
+  `})`  
+      //在每个router设置meta值,动态修改网页title，matched\[0\]解决嵌套问题
