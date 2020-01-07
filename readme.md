@@ -52,3 +52,18 @@ key的值是独一无二的，一般是使用后台传来的id值
     前端路由的映射关系: URL字段 <--> 页面
 
 ### hash & history
+  路由模式: mode: 'hash'||'history' 
+
+### 懒加载
+  原理: 将打包后的app.js文件进行分离; 每个路由组件作为一个js文件
+  用法: `const Home = () => import('@/components/Home.vue')`
+
+### 参数传递
+  `$route.query || params`
+
+### 导航守卫
+  概念: 设置路由跳转时的监听
+  `router.forEach((to, from, next) => {`
+    `next()`
+    `document.title = to.matched[0].meta.title`  //在每个router设置meta值,动态修改网页title，matched\[0\]解决嵌套问题
+  `})`
